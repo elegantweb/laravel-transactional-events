@@ -1,0 +1,29 @@
+{
+    "name": "elegantweb/laravel-transactional-events",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sina Sharifzade",
+            "email": "sharifzadesina@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "5.8.*|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elegant\\Events\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Elegant\\Events\\EventsServiceProvider"
+            ]
+        }
+    }
+}
