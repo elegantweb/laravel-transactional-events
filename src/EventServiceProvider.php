@@ -4,7 +4,7 @@ namespace Elegant\Events;
 
 use Illuminate\Support\ServiceProvider;
 
-class EventsServiceProvider extends ServiceProvider
+class EventServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
