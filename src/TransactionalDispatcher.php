@@ -3,6 +3,7 @@
 namespace Elegant\Events;
 
 use Elegant\Events\Concerns\DelegatesToDispatcher;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Database\Events\TransactionBeginning;
 use Illuminate\Database\Events\TransactionCommitted;
@@ -207,7 +208,7 @@ class TransactionalDispatcher implements DispatcherContract
      */
     protected function handleEvent($event, $payload)
     {
-        $transaction = array_last($this->transactions);
+        $transaction = Arr::last($this->transactions);
 
         $transaction->events[] = [$event, $payload];
     }
