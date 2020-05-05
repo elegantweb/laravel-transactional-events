@@ -114,7 +114,16 @@ class TransactionalDispatcher implements DispatcherContract
     {
         $transaction = array_pop($this->transactions);
 
+        // we don't have any transaction handled
         if (null === $transaction) {
+            return;
+        }
+
+        $last = Arr::last($this->transactions);
+
+        // if there is another parent transaction, just add events to it
+        if (null !== $last) {
+            $last->events = array_merge($last->events, $transaction->events);
             return;
         }
 
