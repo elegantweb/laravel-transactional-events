@@ -1,5 +1,6 @@
 {
     "name": "elegantweb/laravel-transactional-events",
+    "description": "Laravel transactional events",
     "type": "library",
     "license": "MIT",
     "authors": [
