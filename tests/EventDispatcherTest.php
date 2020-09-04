@@ -100,6 +100,27 @@ class EventDispatcherTest extends TestCase
             $order,
         );
     }
+    
+    public function test_rollback()
+    {
+        $order = [];
+
+        Event::listen(CustomTransactionalEvent::class, function () use (&$order) {
+            $order[] = 'listener';
+        });
+
+        DB::transaction(function () use (&$order) {
+            $order[] = 'before event';
+            event(new CustomTransactionalEvent());
+            throw new \Exception();
+            $order[] = 'after event';
+        });
+
+        $this->assertEquals(
+            ['before event'],
+            $order,
+        );
+    }
 
     public function test_nested()
     {
