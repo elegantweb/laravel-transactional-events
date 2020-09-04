@@ -5,13 +5,13 @@
 
 > Transactional events for Laravel framework.
 
-### Installation
+## Installation
 
 ``` bash
 composer require elegantweb/laravel-transactional-events
 ```
 
-### Why?
+## Why?
 
 Take a look at the example below:
 
@@ -39,12 +39,12 @@ So far so good, but guess what?! we have already sent a notification inside the 
 **Solution:** The workaround here is to make the event to dispatch after the transaction commitment.
 Using this package, you can make the event transactional, so the event will be postponed until the commitment of the transaction.
 
-### Usage
+## Usage
 
 The package is enabled out of the box.
 What you need to do is to just make your events transactional.
 
-#### With Transactional Interface
+### With Transactional Interface
 
 One possible way to make an event transactional is to implements
 `Elegant\Events\TransactionalEvent` interface.
@@ -60,7 +60,7 @@ class MyAwesomeEvent implements TransactionalEvent
 
 Now the `MyAwesomeEvent` class is transactional and it will be handled by the package whenever you dispatch it.
 
-#### With Configuration
+### With Configuration
 
 The other way is to use configuration file. This way, You can make a group of events transactional.
 
