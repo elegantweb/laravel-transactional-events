@@ -91,7 +91,7 @@ class EventDispatcherTest extends TestCase
         );
     }
 
-    public function test_transactional_event()
+    public function test_transactional_interface()
     {
         $order = [];
 
@@ -111,7 +111,7 @@ class EventDispatcherTest extends TestCase
         );
     }
 
-    public function test_early_dispatch_outside_of_transactions()
+    public function test_without_transaction_causes_early_dispatch()
     {
         $order = [];
 
