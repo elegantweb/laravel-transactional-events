@@ -25,7 +25,7 @@ DB::transaction(function () {
 
 At the first glance, everything seems fine, but there is a big problem here!
 
-Imagine we are sending a notification inside `PostCreated` event, let see what can happen:
+Imagine we are sending a notification inside `PostCreated` event, lets see what can happen:
 
 **Situation 1:** The notification fails to be sent, probably an exception will be thrown,
 the transaction will be rolled back and the created post will be removed from database.
