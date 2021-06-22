@@ -33,7 +33,7 @@ What actually happened is, our post got removed because of the notification fail
 Most of the time, we don't want to remove the post because of failed notifications!
 
 **Situation 2:** Lets consider that the `PostCreated` event dispatched successfully without any error. but because of some database or application problem, we got an error
-when we tried to create a category for our post (How unlucky we are!!! 😩), in this case, the transaction will be fail and the post will be removed from database.
+when we tried to create a category for our post (How unlucky we are!!! 😩), in this case, the transaction will fail and the post will be removed from database.
 So far so good, but guess what?! we have already sent a notification inside the `PostCreated` event for the post that no longer exists! 😱
 
 **Solution:** The workaround here is to make the event to dispatch after the transaction commitment.
